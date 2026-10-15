@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem('specimen-theme');
+          var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'night' : 'day');
+          document.documentElement.className = 't-' + theme;
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {
+          document.documentElement.className = 't-day';
+        }
+      })();
+    </script>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23191510'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-style='italic' font-size='34' fill='%238A94FF' text-anchor='middle'%3EY.%3C/text%3E%3C/svg%3E" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#F6F3ED" />
+    <meta name="description" content="Yogita Yadav — Specimen Nº 04. Data scientist, ML engineer & UX product architect. Churn models, Power BI intelligence, a granted IoT patent, and interface craft — documented like a research journal." />
+    <meta name="keywords" content="Yogita Yadav, Data Scientist, Machine Learning, UI/UX Designer, Portfolio, Python, SHAP, Power BI, ESP32, IoT Patent" />
+    <meta property="og:title" content="Yogita Yadav — Specimen Nº 04" />
+    <meta property="og:description" content="Data, documented. Machine learning pipelines, analytics, an IoT patent and interface design — a research-journal portfolio." />
+
+    <!-- Type system: Gambetta + Switzer (Fontshare) · JetBrains Mono (Google) -->
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://api.fontshare.com/v2/css?f[]=gambetta@400,401,600,601&f[]=switzer@400,500,600,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <title>Yogita Yadav — Specimen Nº 04 · Data, documented.</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
