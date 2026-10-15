@@ -9,6 +9,12 @@ dist-ssr/
 build/
 *.local
 
+# Reference documents (PDFs & Presentations)
+reference-docs/
+reference-doc/
+*.pdf
+*.pptx
+
 # Logs & temp files
 *.log
 dev.log
