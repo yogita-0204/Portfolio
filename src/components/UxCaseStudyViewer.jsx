@@ -109,7 +109,7 @@ export default function UxCaseStudyViewer() {
                 </div>
 
                 <a
-                  href="https://www.figma.com/design/IVT7XLe5dFmxUG9UsXrtzZ/Dabba-midfi?node-id=84-1141"
+                  href="https://www.figma.com/design/IVT7XLe5dFmxUG9UsXrtzZ/Dabba-midfi?node-id=0-1"
                   target="_blank"
                   rel="noreferrer"
                   onClick={playClickSound}

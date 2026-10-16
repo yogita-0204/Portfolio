@@ -43,8 +43,6 @@ function LinkedinGlyph({ size = 17 }) {
   );
 }
 
-const telHref = `tel:${personalInfo.phone.replace(/\s+/g, '')}`;
-
 const socials = [
   { label: 'GitHub', href: personalInfo.github, external: true, glyph: <GithubGlyph /> },
   { label: 'LinkedIn', href: personalInfo.linkedin, external: true, glyph: <LinkedinGlyph /> },
@@ -85,9 +83,6 @@ export default function Contact() {
       </a>
 
       <div className="mt-8 flex flex-wrap items-center gap-x-10 gap-y-4" data-reveal data-reveal-delay="0.06">
-        <a className="link-arrow" href={telHref}>
-          {personalInfo.phone}
-        </a>
         <span className="fig flex items-center gap-1.5">
           <MapPin size={12} aria-hidden="true" />
           {personalInfo.location}

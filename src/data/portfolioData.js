@@ -4,7 +4,6 @@ export const personalInfo = {
   tagline: "Bridging the gap between intelligent algorithms and intuitive human experiences.",
   summary: "Final-year Computer Science Engineering student at Lovely Professional University with a strong foundation in Machine Learning, predictive modeling, big data pipelines, and UI/UX product design. Co-inventor of an IoT patent and creator of end-to-end data systems that translate complex analytics into measurable business impact.",
   email: "yogitayadav422003@gmail.com",
-  phone: "+91 7568259835",
   location: "Punjab / Rajasthan, India",
   status: "Available for Full-time Roles & Innovations",
   github: "https://github.com/yogita-0204",
@@ -207,7 +206,7 @@ export const projectsData = [
     ],
     techStack: ["Figma", "Design Systems", "User Research", "Wireframing", "Interaction Design", "Prototyping"],
     links: {
-      figma: "https://www.figma.com/design/IVT7XLe5dFmxUG9UsXrtzZ/Dabba-midfi?node-id=84-1141",
+      figma: "https://www.figma.com/design/IVT7XLe5dFmxUG9UsXrtzZ/Dabba-midfi?node-id=0-1",
       demoLabel: "Open Case Study"
     },
     highlights: [

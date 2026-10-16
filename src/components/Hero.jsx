@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { lazy, Suspense, useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowDown, Play } from 'lucide-react';
@@ -10,7 +10,8 @@ import SplitText from './bits/SplitText';
 import TextLoop from './bits/TextLoop';
 import DotGrid from './bits/DotGrid';
 import GridMotion from './bits/GridMotion';
-import ChromeKnot from './scene/ChromeKnot';
+// Deferred chunk: keeps the ~600 kB three.js payload out of the initial bundle.
+const ChromeKnot = lazy(() => import('./scene/ChromeKnot'));
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -135,7 +136,7 @@ export default function Hero() {
 
       <div className="absolute right-[3vw] top-1/2 hidden -translate-y-1/2 md:block">
         <div ref={knotRef} style={{ width: 'min(44vw, 560px)', height: 'min(44vw, 560px)' }}>
-          <ChromeKnot variant={theme} />
+          <Suspense fallback={null}><ChromeKnot variant={theme} /></Suspense>
         </div>
         <div className="mt-2 flex flex-col items-center">
           <p className="fig">HOLD TO RUN THE MODEL</p>
