@@ -1,0 +1,220 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-17T10:00:00Z",
+  "title": "Design System: Yogita Yadav — Specimen Nº 04",
+  "extensions": {
+    "colorMeta": {
+      "archival-paper": {
+        "role": "neutral",
+        "displayName": "Archival Paper",
+        "canonical": "oklch(96% 0.008 90)",
+        "tonalRamp": [
+          "oklch(16% 0.008 90)",
+          "oklch(27% 0.008 90)",
+          "oklch(38% 0.008 90)",
+          "oklch(50% 0.008 90)",
+          "oklch(61% 0.008 90)",
+          "oklch(73% 0.008 90)",
+          "oklch(85% 0.008 90)",
+          "oklch(96% 0.008 90)"
+        ]
+      },
+      "iron-gall": {
+        "role": "neutral",
+        "displayName": "Iron Gall",
+        "canonical": "oklch(16% 0.012 80)",
+        "tonalRamp": [
+          "oklch(16% 0.012 80)",
+          "oklch(27% 0.012 80)",
+          "oklch(38% 0.012 80)",
+          "oklch(50% 0.012 80)",
+          "oklch(61% 0.012 80)",
+          "oklch(73% 0.012 80)",
+          "oklch(85% 0.012 80)",
+          "oklch(95% 0.012 80)"
+        ]
+      },
+      "laboratory-cobalt": {
+        "role": "primary",
+        "displayName": "Laboratory Cobalt",
+        "canonical": "oklch(41% 0.24 267)",
+        "tonalRamp": [
+          "oklch(18% 0.12 267)",
+          "oklch(26% 0.17 267)",
+          "oklch(33% 0.21 267)",
+          "oklch(41% 0.24 267)",
+          "oklch(54% 0.2 267)",
+          "oklch(68% 0.14 267)",
+          "oklch(82% 0.08 267)",
+          "oklch(95% 0.03 267)"
+        ]
+      },
+      "specimen-red": {
+        "role": "secondary",
+        "displayName": "Specimen Red",
+        "canonical": "oklch(51% 0.19 29)",
+        "tonalRamp": [
+          "oklch(20% 0.09 29)",
+          "oklch(29% 0.13 29)",
+          "oklch(38% 0.16 29)",
+          "oklch(51% 0.19 29)",
+          "oklch(63% 0.15 29)",
+          "oklch(74% 0.11 29)",
+          "oklch(85% 0.06 29)",
+          "oklch(95% 0.02 29)"
+        ]
+      },
+      "graphite": {
+        "role": "neutral",
+        "displayName": "Graphite",
+        "canonical": "oklch(11% 0.004 90)",
+        "tonalRamp": [
+          "oklch(11% 0.004 90)",
+          "oklch(23% 0.004 90)",
+          "oklch(35% 0.004 90)",
+          "oklch(47% 0.004 90)",
+          "oklch(59% 0.004 90)",
+          "oklch(71% 0.004 90)",
+          "oklch(83% 0.004 90)",
+          "oklch(94% 0.004 90)"
+        ]
+      },
+      "bone-ink": {
+        "role": "neutral",
+        "displayName": "Bone Ink",
+        "canonical": "oklch(91% 0.012 85)",
+        "tonalRamp": [
+          "oklch(15% 0.012 85)",
+          "oklch(26% 0.012 85)",
+          "oklch(38% 0.012 85)",
+          "oklch(49% 0.012 85)",
+          "oklch(60% 0.012 85)",
+          "oklch(72% 0.012 85)",
+          "oklch(83% 0.012 85)",
+          "oklch(91% 0.012 85)"
+        ]
+      },
+      "lavender-blueprint": {
+        "role": "primary",
+        "displayName": "Lavender Blueprint",
+        "canonical": "oklch(70% 0.14 277)",
+        "tonalRamp": [
+          "oklch(19% 0.07 277)",
+          "oklch(29% 0.1 277)",
+          "oklch(39% 0.12 277)",
+          "oklch(50% 0.13 277)",
+          "oklch(60% 0.14 277)",
+          "oklch(70% 0.14 277)",
+          "oklch(82% 0.09 277)",
+          "oklch(94% 0.04 277)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero statements only; italic phrase takes the accent color." },
+      "headline": { "displayName": "Headline", "purpose": "Section titles; second line is the italic accent phrase." },
+      "body": { "displayName": "Body", "purpose": "Running copy at 15–16px, under ~70ch." },
+      "label": { "displayName": "Label", "purpose": "Mono uppercase micro-labels: section labels, chips, button captions." },
+      "figure": { "displayName": "Figure", "purpose": "Mono figures: FIG. numbers, metric rows, captions, tooltips." }
+    },
+    "shadows": [
+      {
+        "name": "nav-frame",
+        "value": "0 10px 30px rgba(0, 0, 0, 0.18)",
+        "purpose": "The only elevation in the system: the floating navigator glass frame. Never applied to plates."
+      }
+    ],
+    "motion": [
+      { "name": "theme-flip", "value": "background-color 0.45s ease, color 0.45s ease", "purpose": "Day/night theme transition on .scope and body." },
+      { "name": "state-standard", "value": "0.2s ease", "purpose": "Hover/color transitions on buttons, bubbles, links." },
+      { "name": "glare-sweep", "value": "700ms ease forwards", "purpose": "One-shot glare across hovered pills; disabled under reduced motion." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-accent",
+      "description": "The single accent CTA — contact-scale pill (used for the email action on FIG. 10).",
+      "html": "<a class=\"ds-btn-accent\" href=\"#\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect width=\"20\" height=\"16\" x=\"2\" y=\"4\" rx=\"2\"/><path d=\"m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7\"/></svg><span>yogitayadav422003@gmail.com</span></a>",
+      "css": ".ds-btn-accent { display: inline-flex; align-items: center; gap: 0.625rem; padding: 16px 32px; border-radius: 999px; background: var(--accent); color: var(--on-accent); font: 500 1rem 'Switzer', system-ui, sans-serif; letter-spacing: 0.01em; text-decoration: none; cursor: pointer; transition: filter 0.2s ease; } .ds-btn-accent:hover { filter: brightness(1.06); } .ds-btn-accent:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Default secondary action — hairline pill that tints with ink on hover.",
+      "html": "<a class=\"ds-btn-outline\" href=\"#\">VIEW CASE STUDY</a>",
+      "css": ".ds-btn-outline { display: inline-flex; align-items: center; gap: 0.6rem; padding: 12.5px 24px; border-radius: 999px; border: 1px solid var(--line-2); background: transparent; color: var(--ink); font: 500 0.9rem 'Switzer', system-ui, sans-serif; text-decoration: none; cursor: pointer; transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease; } .ds-btn-outline:hover { background: color-mix(in srgb, var(--ink) 8%, transparent); } .ds-btn-outline:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }"
+    },
+    {
+      "name": "Solid Button",
+      "kind": "button",
+      "refersTo": "button-solid",
+      "description": "Emphatic ink-filled pill — used for navigation's primary action.",
+      "html": "<a class=\"ds-btn-solid\" href=\"#\">SAY HI</a>",
+      "css": ".ds-btn-solid { display: inline-flex; align-items: center; gap: 0.6rem; padding: 12.5px 24px; border-radius: 999px; border: 1px solid var(--ink); background: var(--ink); color: var(--paper); font: 500 0.9rem 'Switzer', system-ui, sans-serif; text-decoration: none; cursor: pointer; transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease; } .ds-btn-solid:hover { background: color-mix(in srgb, var(--ink) 86%, var(--paper)); border-color: color-mix(in srgb, var(--ink) 86%, var(--paper)); }"
+    },
+    {
+      "name": "Mono Label",
+      "kind": "chip",
+      "refersTo": "label-tag",
+      "description": "The lab hand: uppercase mono micro-label used for section labels, metadata rows and tooltips.",
+      "html": "<span class=\"ds-label\">CORRESPONDENCE</span>",
+      "css": ".ds-label { font: 500 10.5px 'JetBrains Mono', ui-monospace, monospace; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3); }"
+    },
+    {
+      "name": "Email Copy Pill",
+      "kind": "custom",
+      "refersTo": "button-accent",
+      "description": "Signature contact component — accent pill split by a hairline: mailto segment + mono COPY segment with copied state.",
+      "html": "<div class=\"ds-copy-pill\"><a class=\"ds-copy-pill__mail\" href=\"mailto:yogitayadav422003@gmail.com\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect width=\"20\" height=\"16\" x=\"2\" y=\"4\" rx=\"2\"/><path d=\"m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7\"/></svg><span>yogitayadav422003@gmail.com</span></a><span class=\"ds-copy-pill__divider\" aria-hidden=\"true\"></span><button class=\"ds-copy-pill__copy\" type=\"button\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect width=\"14\" height=\"14\" x=\"8\" y=\"8\" rx=\"2\"/><path d=\"M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2\"/></svg><span>COPY</span></button></div>",
+      "css": ".ds-copy-pill { display: inline-flex; align-items: stretch; border-radius: 999px; background: var(--accent); color: var(--on-accent); overflow: hidden; } .ds-copy-pill__mail { display: flex; align-items: center; gap: 0.625rem; padding: 16px 20px 16px 28px; color: inherit; text-decoration: none; font: 500 15px 'Switzer', system-ui, sans-serif; } .ds-copy-pill__divider { width: 1px; margin: 14px 0; background: currentColor; opacity: 0.25; } .ds-copy-pill__copy { display: flex; align-items: center; gap: 0.5rem; padding: 16px 24px 16px 16px; border: 0; background: transparent; color: inherit; cursor: pointer; font: 500 10.5px 'JetBrains Mono', ui-monospace, monospace; letter-spacing: 0.14em; } .ds-copy-pill:focus-within { outline: 2px solid var(--accent); outline-offset: 3px; }"
+    },
+    {
+      "name": "Navigator Glass Frame",
+      "kind": "nav",
+      "refersTo": "button-solid",
+      "description": "The only elevated surface in the system: floating glass nav with pill items; active item is an accent pill.",
+      "html": "<nav class=\"ds-nav\"><span class=\"ds-nav__item\">APPARATUS</span><span class=\"ds-nav__item ds-nav__item--active\">LAB</span><span class=\"ds-nav__item\">EXHIBIT</span></nav>",
+      "css": ".ds-nav { display: inline-flex; align-items: center; gap: 4px; padding: 8px; border-radius: 999px; border: 1px solid var(--line); background: color-mix(in srgb, var(--paper) 72%, transparent); backdrop-filter: blur(12px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18); } .ds-nav__item { padding: 8px 14px; border-radius: 999px; font: 500 10.5px 'JetBrains Mono', ui-monospace, monospace; letter-spacing: 0.14em; color: var(--ink-2); cursor: pointer; } .ds-nav__item--active { background: var(--accent); color: var(--on-accent); } .ds-nav__item:not(.ds-nav__item--active):hover { color: var(--ink); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Research Journal",
+    "overview": "The site is a field journal that happens to be a portfolio: sections are catalogue plates, every project carries a FIG. number, and annotations sit in the margins in mono type. The system reads as printed evidence — warm paper, iron-gall ink, one laboratory accent — not as a screen product. Density is deliberate and uneven: generous editorial air around display type, tight analytical rows inside data plates. The component feel is a measured instrument: hairline rules instead of shadows, pill actions instead of rounded cards, mono micro-labels instead of icon noise. Two scoped themes are first-class citizens — day is Archival Paper, night is Graphite — and every plate must read correctly in both, including inverted sections that intentionally flip the paper.",
+    "keyCharacteristics": [
+      "Warm paper base with iron-gall text; one cobalt accent per plate.",
+      "Hairline (1px) rules and grid textures carry all structure; shadows are absent.",
+      "Gambetta italic accents paired with JetBrains Mono annotations; Switzer carries body.",
+      "Sections open with a mono label row (label left, FIG. number right) under a hairline.",
+      "Interactive accents are canvas/WebGL artefacts that follow theme tokens live."
+    ],
+    "rules": [
+      { "name": "The One Accent Rule", "body": "Laboratory Cobalt / Lavender Blueprint is the only chromatic accent; it appears on ≤10% of any plate. Its rarity is the point.", "section": "colors" },
+      { "name": "The Two Papers Rule", "body": "Every component ships with both theme scopes (.t-day / .t-night). A component that only reads on one paper is unfinished.", "section": "colors" },
+      { "name": "The Marginalia Rule", "body": "Mono is the lab hand: annotations, numbers, microcopy. Body copy is never mono, display type never mono.", "section": "typography" },
+      { "name": "The Italic Accent Rule", "body": "Display and headline italics take the accent color; roman text never does.", "section": "typography" },
+      { "name": "The Flat Evidence Rule", "body": "Surfaces are flat plates. If something needs emphasis, add a hairline or change the paper tone — never a drop shadow.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep structure on 1px hairlines and paper tone changes (--line, --paper-2).",
+      "Do use the mono label row (label left / FIG. number right) to open every section.",
+      "Do drive every color from the theme tokens so both scopes stay correct; accents re-read tokens live (canvas MutationObserver pattern).",
+      "Do guard every animation with prefers-reduced-motion and pause off-screen loops via IntersectionObserver.",
+      "Do pair every claim with a figure, metric, or FIG. number — evidence over adjectives."
+    ],
+    "donts": [
+      "Don't introduce drop shadows on plates (the navigator's glass frame is the only exception).",
+      "Don't add a second chromatic accent; Specimen Red stays reserved for signal duty.",
+      "Don't set body or display copy in mono, or use italics without the accent/roman split.",
+      "Don't fabricate evidence — no testimonials, client logos, or press that do not exist.",
+      "Don't break the prerender: every build must emit rendered HTML (scripts/prerender.mjs), never an empty SPA shell."
+    ]
+  }
+}
