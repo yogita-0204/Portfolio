@@ -24,9 +24,29 @@ const BROWSERS = [
   '/usr/bin/chromium',
 ].filter(Boolean);
 
-const browser = BROWSERS.find((path) => existsSync(path));
+let browser = BROWSERS.find((path) => existsSync(path));
+let extraArgs = [];
 if (!browser) {
-  // ponytail: soft-skip; make this a hard failure if deploys ever require prerender.
+  // CI rebuilds (Vercel etc.) have no system Chrome; @sparticuz/chromium ships
+  // a build-container-compatible Chromium binary inside the npm package.
+  try {
+    const { default: chromium } = await import('@sparticuz/chromium');
+    const bundled = await chromium.executablePath();
+    if (existsSync(bundled)) {
+      browser = bundled;
+      extraArgs = chromium.args ?? [];
+    }
+  } catch {
+    // Package not installed (plain local checkout) — fall through to skip below.
+  }
+}
+if (!browser) {
+  if (process.env.VERCEL) {
+    // Loud on CI: shipping an unprerendered SPA is the exact bug prerender exists for.
+    console.error('[prerender] no browser on Vercel and @sparticuz/chromium unavailable — failing the build.');
+    process.exit(1);
+  }
+  // ponytail: soft-skip locally; make this a hard failure if deploys ever require prerender.
   console.warn('[prerender] no headless browser found — dist stays unprerendered.');
   process.exit(0);
 }
@@ -71,6 +91,7 @@ const profile = mkdtempSync(join(tmpdir(), 'prerender-profile-'));
 const dump = spawnSync(
   browser,
   [
+    ...extraArgs,
     '--headless=new',
     '--disable-gpu',
     '--no-first-run',

@@ -20,6 +20,7 @@
     "three": "^0.174.0"
   },
   "devDependencies": {
+    "@sparticuz/chromium": "^153.0.0",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@types/three": "^0.174.0",
