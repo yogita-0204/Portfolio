@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Menu, Moon, Sun, X } from 'lucide-react';
 import { useTheme } from '../theme/ThemeProvider';
 import ScrambleText from './bits/ScrambleText';
+import GooeyNav from './bits/GooeyNav';
 
 const LINKS = [
   { label: 'FIELD WORK', href: '#fieldwork' },
@@ -22,6 +23,7 @@ export default function Nav() {
   const { theme, toggle } = useTheme();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [active, setActive] = useState(0);
   const progressRef = useRef(null);
   const tickingRef = useRef(false);
 
@@ -33,6 +35,13 @@ export default function Nav() {
       const max = document.documentElement.scrollHeight - window.innerHeight;
       const ratio = max > 0 ? Math.min(y / max, 1) : 0;
       if (progressRef.current) progressRef.current.style.transform = `scaleX(${ratio})`;
+      // Scroll-spy: the last section whose top crossed the header line owns the pill.
+      let idx = 0;
+      for (let i = 0; i < LINKS.length; i += 1) {
+        const el = document.querySelector(LINKS[i].href);
+        if (el && el.getBoundingClientRect().top <= 120) idx = i;
+      }
+      setActive(idx);
     };
     const onScroll = () => {
       if (tickingRef.current) return;
@@ -67,13 +76,24 @@ export default function Nav() {
           <span className="label hidden md:inline">SPECIMEN Nº 04</span>
         </a>
 
-        <nav aria-label="Primary" className="hidden items-center gap-1 lg:flex">
-          {LINKS.map((link) => (
-            <a key={link.href} href={link.href} className={`${LINK_CLASS} p-[10px]`}>
-              {link.label}
-            </a>
-          ))}
-        </nav>
+        <div className="hidden lg:block">
+          <GooeyNav
+            items={LINKS}
+            size="sm"
+            frame={false}
+            theme={theme === 'night' ? 'dark' : 'light'}
+            color={theme === 'night' ? '#8a94ff' : '#2133d6'}
+            activeIndex={active}
+            spread={44}
+            className="font-mono"
+            style={{
+              '--gn-font': '10.5px',
+              letterSpacing: '0.14em',
+              '--gn-ink': 'var(--ink)',
+              '--gn-muted': 'var(--ink-2)',
+            }}
+          />
+        </div>
 
         <div className="flex items-center gap-2.5">
           <button

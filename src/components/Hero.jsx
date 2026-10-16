@@ -36,7 +36,9 @@ function IstClock() {
     return () => clearInterval(id);
   }, []);
 
-  return <span className="fig">IST {time}</span>;
+  // suppressHydrationWarning: the prerendered snapshot bakes a real timestamp,
+  // the client re-renders it within one tick.
+  return <span className="fig" suppressHydrationWarning>IST {time}</span>;
 }
 
 export default function Hero() {

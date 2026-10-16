@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useLayoutEffect, useState } from 'react';
 
 /**
  * Specimen theme system.
@@ -16,7 +16,15 @@ function readInitialTheme() {
 }
 
 export function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState(readInitialTheme);
+  // First client render is always 'day' so hydration matches the build-time
+  // prerender (which always snapshots in light mode). The real saved/system
+  // theme is adopted in a layout effect, before first paint.
+  const [theme, setTheme] = useState('day');
+
+  useLayoutEffect(() => {
+    const initial = readInitialTheme();
+    if (initial !== 'day') setTheme(initial);
+  }, []);
 
   useEffect(() => {
     const root = document.documentElement;

@@ -29,7 +29,7 @@ export default function Footer() {
       <div className="container-x pt-14">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <span className="label">YOGITA</span>
-          <span className="fig">IST {time}</span>
+          <span className="fig" suppressHydrationWarning>IST {time}</span>
           <span className="fig">DESIGNED &amp; BUILT 2026</span>
         </div>
 

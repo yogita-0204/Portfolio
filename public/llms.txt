@@ -1,0 +1,13 @@
+# Yogita Yadav — Specimen Nº 04 (portfolio)
+
+> Data scientist, ML engineer and UX product architect (final-year CSE, Lovely Professional University; Punjab/Rajasthan, India). This portfolio is built as a research-journal "specimen": ML churn modeling with SHAP explainability, Power BI sales intelligence, a granted IoT patent (ESP32 + phase-change material car seat), full-stack web apps, and mobile UX case studies. Available for full-time roles.
+
+Key content (single page — all sections live at the site root):
+
+- Field Work: Telecom Customer Retention Intelligence (Python, scikit-learn, SHAP, FastAPI — ROC-AUC 0.92, $7.2M+ customer value at risk); Adidas US Sales Analytics (Power BI, DAX — $899.9M sales tracked).
+- Apparatus: tools and stack across ML, BI, product design and backend.
+- Lab: interactive churn-model simulator.
+- Exhibit: granted IoT patent — temperature-sensitive smart car seat cover (ESP32, phase-change material thermal buffering).
+- Practice: UX/product case studies — Dabba Garam food-delivery redesign (Figma), Kitchenette campus dining app, foodR full-stack canteen pre-order system (Django, MySQL, atomic slot booking).
+- Credentials: education and certifications (Oracle Foundations, NPTEL).
+- Contact: yogitayadav422003@gmail.com · github.com/yogita-0204 · linkedin.com/in/yogita-yadav-42geta

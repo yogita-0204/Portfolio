@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+# Single-page site. No sitemap entry until the production domain is fixed.
