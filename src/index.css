@@ -141,16 +141,16 @@ body {
   font-family: "JetBrains Mono", ui-monospace, monospace;
   font-size: 10.5px;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--ink-3);
+  color: var(--ink-2);
 }
 
 .fig {
   font-family: "JetBrains Mono", ui-monospace, monospace;
   font-size: 10.5px;
   letter-spacing: 0.08em;
-  color: var(--ink-3);
+  color: var(--ink-2);
 }
 
 .body-2 {
