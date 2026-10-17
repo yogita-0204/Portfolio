@@ -15,6 +15,9 @@ reference-doc/
 *.pdf
 *.pptx
 
+# Original source images (kept out of the shipped site)
+assets-src/
+
 # Logs & temp files
 *.log
 dev.log
