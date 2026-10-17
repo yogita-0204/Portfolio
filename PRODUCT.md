@@ -24,7 +24,7 @@ Evaluated in short recruiter scans (1–2 minutes, often desktop) and longer cli
 
 ## Capabilities and Constraints
 
-- Single-page portfolio; sections: hero (3D chrome knot), field work (case studies), apparatus, lab, exhibit (patent + certifications), practice (UX case studies), credentials, contact.
+- Single-page portfolio; sections: hero (halftone portrait plate), field work (index-card accordion case files), apparatus, lab, exhibit (patent + certifications), practice (UX case studies), credentials, contact.
 - Day/night theme system, default day-first hydration, visitor-persisted; interactive canvas accents follow the theme tokens.
 - No backend, no contact form — email is shown openly with a one-click copy button.
 - Constraint: the build-time prerender (`scripts/prerender.mjs`) must keep working — every deploy must ship rendered HTML, never an empty SPA shell.

@@ -13,7 +13,7 @@ clean, premium, with React Bits components and reference-driven 3D.
   with label/meta columns; "HOLD TO BLAST" interaction prompt → "HOLD TO RUN THE
   MODEL"; pill CTAs; underlined arrow links; alternating dark→light section rhythm.
 - **reactbits.dev**: source components used (adapted to JS + theme tokens):
-  ScrollReveal, CountUp/Counter, TiltedCard, Magnet, LogoLoop, Crosshair.
+  ScrollReveal, CountUp/Counter, TiltedCard, Magnet, LogoLoop, Crosshair, Halftone (hero plate).
 
 ## Design system
 
@@ -33,7 +33,7 @@ clean, premium, with React Bits components and reference-driven 3D.
 
 - src/theme/ThemeProvider.jsx — { theme, toggle, invClass }
 - src/components/bits/* — React Bits adaptations (fixed prop APIs)
-- src/components/scene/* — ChromeKnot (three.js hero object), ContourField (canvas2d)
+- src/components/scene/* — ContourField (canvas2d)
 - src/components/: Nav, Hero, Ticker, Statement, Metrics, Apparatus, FieldWork, Lab,
   Exhibit, CaseStudies, Credentials, Contact, Footer
 - src/data/portfolioData.js — untouched, single source of truth for content
@@ -42,13 +42,13 @@ clean, premium, with React Bits components and reference-driven 3D.
 ## Section anatomy (locked)
 
 1. Nav — fixed, hairline, specimen label, anchor links, theme toggle, availability pill
-2. Hero — "Data, *documented.*", chrome knot canvas + HOLD prompt, HUD corner labels,
+2. Hero — "Data, *documented.*", halftone portrait plate + HOLD prompt, HUD corner labels,
    live IST clock, 2 CTAs
 3. Ticker — LogoLoop strip (stack keywords)
 4. Statement — about statement + portrait plate + meta columns
 5. Metrics — counters table + patent stamp row
 6. Apparatus — 4 skill category sheets with tick-bars
-7. FieldWork (inverted) — 6 projects, expandable deep-dives
+7. FieldWork (inverted) — 6 index-card case files, one-at-a-time accordion deep-dives
 8. Lab — live churn simulator (ported logic from old TerminalLab)
 9. Exhibit (inverted) — granted IoT patent as certified document
 10. CaseStudies — Dabba Garam + Kitchenette practice sheets
