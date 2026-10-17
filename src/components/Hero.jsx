@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowDown, Play } from 'lucide-react';
@@ -10,8 +10,7 @@ import SplitText from './bits/SplitText';
 import TextLoop from './bits/TextLoop';
 import DotGrid from './bits/DotGrid';
 import GridMotion from './bits/GridMotion';
-// Deferred chunk: keeps the ~600 kB three.js payload out of the initial bundle.
-const ChromeKnot = lazy(() => import('./scene/ChromeKnot'));
+import HalftoneReveal from './bits/HalftoneReveal';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -23,6 +22,13 @@ const ROLES = personalInfo.title
   .split(/[,&]/)
   .map((word) => word.trim())
   .filter(Boolean);
+
+// Print-plate palette: the halftone canvas paints with literal RGB and cannot
+// read CSS vars, so the .t-day/.t-night --paper/--ink tokens are mirrored here.
+const HALFTONE_THEME = {
+  day: { paper: '#f6f3ed', ink: '#191510' },
+  night: { paper: '#0d0c0a', ink: '#eae4da' },
+};
 
 function istTime() {
   return new Date().toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata', hour12: false });
@@ -41,12 +47,31 @@ function IstClock() {
   return <span className="fig" suppressHydrationWarning>IST {time}</span>;
 }
 
+// Matches Tailwind's lg breakpoint; below it the plate flows under the copy
+// and wanders on its own (touch/no-hover tablets included).
+function useIsMobile() {
+  const [mobile, setMobile] = useState(
+    () => typeof window !== 'undefined' && window.matchMedia('(max-width: 1023px)').matches
+  );
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 1023px)');
+    const onChange = (event) => setMobile(event.matches);
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, []);
+
+  return mobile;
+}
+
 export default function Hero() {
   const { theme } = useTheme();
   const heroRef = useRef(null);
   const copyRef = useRef(null);
-  const knotRef = useRef(null);
+  const halftoneRef = useRef(null);
   const dotsRef = useRef(null);
+  const isMobile = useIsMobile();
+  const plate = HALFTONE_THEME[theme] ?? HALFTONE_THEME.day;
 
   // Hero exit scrub. gsap.to (never from/fromTo) starts each tween from the
   // element's natural state, so a throttled ticker can never leave anything
@@ -56,14 +81,14 @@ export default function Hero() {
 
     const hero = heroRef.current;
     const copy = copyRef.current;
-    const knot = knotRef.current;
+    const halftone = halftoneRef.current;
     const dots = dotsRef.current;
-    if (!hero || !copy || !knot || !dots) return undefined;
+    if (!hero || !copy || !halftone || !dots) return undefined;
 
     const shared = { trigger: hero, start: 'top top', end: 'bottom 40%', scrub: true };
     const tweens = [
       gsap.to(copy, { y: -60, opacity: 0.15, ease: 'none', scrollTrigger: { ...shared } }),
-      gsap.to(knot, { y: -40, scale: 1.18, ease: 'none', scrollTrigger: { ...shared } }),
+      gsap.to(halftone, { y: -40, scale: 1.18, ease: 'none', scrollTrigger: { ...shared } }),
       gsap.to(dots, { opacity: 0, ease: 'none', scrollTrigger: { ...shared } }),
     ];
 
@@ -80,7 +105,7 @@ export default function Hero() {
       id="hero"
       ref={heroRef}
       aria-label="Introduction"
-      className="relative flex min-h-[100svh] items-center overflow-hidden pt-[96px] pb-24"
+      className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden pt-[96px] pb-24"
     >
       {/* Background paint order: receding floor → flat major grid → accent wash → dot grid. */}
       <GridMotion className="hero-floor pointer-events-none absolute inset-x-0 bottom-0 h-[55%]" />
@@ -136,12 +161,21 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="absolute right-[3vw] top-1/2 hidden -translate-y-1/2 md:block">
-        <div ref={knotRef} style={{ width: 'min(44vw, 560px)', height: 'min(44vw, 560px)' }}>
-          <Suspense fallback={null}><ChromeKnot variant={theme} /></Suspense>
+      <div className="relative z-10 mx-auto mt-14 w-[min(72vw,340px)] lg:absolute lg:right-[3vw] lg:top-1/2 lg:mx-0 lg:mt-0 lg:w-[min(40vw,560px,62svh)] lg:-translate-y-1/2">
+        <div ref={halftoneRef} className="aspect-square w-full">
+          <HalftoneReveal
+            src={personalInfo.profileImage}
+            mode="mono"
+            cellSize={6}
+            angle={45}
+            revealRadius={150}
+            inkColor={plate.ink}
+            paperColor={plate.paper}
+            wander={isMobile}
+          />
         </div>
         <div className="mt-2 flex flex-col items-center">
-          <p className="fig">HOLD TO RUN THE MODEL</p>
+          <p className="fig">Fig. 1 — Yogita Yadav, Specimen Nº 04</p>
           <span
             aria-hidden="true"
             className="mt-3 block h-px w-11 bg-[var(--accent)]"
