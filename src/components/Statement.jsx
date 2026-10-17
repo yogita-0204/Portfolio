@@ -41,10 +41,10 @@ export default function Statement() {
             <div data-parallax="-8">
               <TiltedCard>
                 <div className="plate">
-                  <img src="/assets/yogita-profile.jpg" alt="Portrait of Yogita Yadav" loading="lazy" />
+                  <img src="/assets/about-plate.webp" alt="Portrait of Yogita Yadav" loading="lazy" />
                 </div>
               </TiltedCard>
-              <p className="fig mt-3">FIG. 01 — THE SUBJECT, 2026</p>
+              <p className="fig mt-3">FIG. 02.1 — THE SUBJECT, 2026</p>
             </div>
           </div>
 

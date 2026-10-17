@@ -175,7 +175,7 @@ export default function Hero() {
           />
         </div>
         <div className="mt-2 flex flex-col items-center">
-          <p className="fig">Fig. 1 — Yogita Yadav, Specimen Nº 04</p>
+          <p className="fig">FIG. 01 — YOGITA YADAV, SPECIMEN Nº 04</p>
           <span
             aria-hidden="true"
             className="mt-3 block h-px w-11 bg-[var(--accent)]"

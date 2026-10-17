@@ -8,7 +8,7 @@ export const personalInfo = {
   status: "Available for Full-time Roles & Innovations",
   github: "https://github.com/yogita-0204",
   linkedin: "https://www.linkedin.com/in/yogita-yadav-42geta",
-  profileImage: "/assets/yogita-profile.jpg",
+  profileImage: "/assets/yogita-portrait.webp",
   stats: [
     { label: "CLV Value at Risk Unlocked", value: "$7.2M+", icon: "TrendingUp", highlight: "Across 3,522 accounts" },
     { label: "Sales Data Analyzed", value: "$899.9M", icon: "BarChart3", highlight: "9,648 Transactions" },
