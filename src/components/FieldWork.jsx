@@ -28,7 +28,7 @@ export default function FieldWork() {
           project={project}
           index={index}
           open={openIndex === index}
-          onToggle={() => setOpenIndex(openIndex === index ? null : index)}
+          onToggle={() => setOpenIndex((prev) => (prev === index ? null : index))}
         />
       ))}
     </Section>

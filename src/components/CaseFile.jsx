@@ -39,7 +39,6 @@ export default function CaseFile({ project, index, open, onToggle }) {
   return (
     <article
       data-reveal
-      data-open={open ? 'true' : undefined}
       className={`${CARD} ${open ? 'border-[color:var(--line-2)]' : ''}`}
     >
       <div className="grid gap-6 p-6 md:p-8 lg:grid-cols-12 lg:gap-10">
@@ -57,7 +56,7 @@ export default function CaseFile({ project, index, open, onToggle }) {
           <ul className="mt-5 flex flex-wrap gap-2">
             {chips.map((metric) => (
               <li
-                key={metric.label}
+                key={`${metric.label}-${metric.value}`}
                 className="border border-[color:var(--line)] px-3 py-1.5"
               >
                 <span className="label">{metric.label}</span>{' '}
@@ -90,6 +89,7 @@ export default function CaseFile({ project, index, open, onToggle }) {
         onClick={onToggle}
         aria-expanded={open}
         aria-controls={regionId}
+        aria-label={`${open ? 'Close' : 'Open'} case file: ${project.title}`}
         className="hairline-t flex w-full items-center justify-between gap-4 px-6 py-4 text-left transition-colors duration-300 hover:bg-[var(--accent-soft)] md:px-8"
       >
         <span className="label" style={{ color: 'var(--ink-2)' }}>
@@ -102,6 +102,7 @@ export default function CaseFile({ project, index, open, onToggle }) {
         id={regionId}
         role="region"
         aria-label={`${project.title} case file`}
+        inert={!open}
         className={`grid transition-[grid-template-rows] duration-500 ease-out motion-reduce:transition-none ${
           open ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
         }`}
@@ -112,7 +113,7 @@ export default function CaseFile({ project, index, open, onToggle }) {
               <div className="lg:col-span-7">
                 <div className="grid gap-x-10 sm:grid-cols-2">
                   {project.metrics.map((metric) => (
-                    <MetricRow key={metric.label} metric={metric} />
+                    <MetricRow key={`${metric.label}-${metric.value}`} metric={metric} />
                   ))}
                 </div>
                 <ul className="hairline-t mt-8 pt-6">

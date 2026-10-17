@@ -47,6 +47,8 @@ def about_plate():
 
 
 if __name__ == "__main__":
+    if not SRC.exists():
+        raise SystemExit("missing assets-src/yogita-profile.png — source photo is gitignored")
     OUT.mkdir(parents=True, exist_ok=True)
     hero_plate()
     about_plate()
