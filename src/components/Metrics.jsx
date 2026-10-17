@@ -3,7 +3,7 @@ import Counter from './bits/Counter';
 import { personalInfo } from '../data/portfolioData';
 
 const ROW_GRID =
-  'grid grid-cols-1 gap-3 py-8 transition-transform duration-300 group-hover:translate-x-2 lg:grid-cols-[56px_1fr_minmax(0,380px)_1fr] lg:items-baseline lg:gap-8';
+  'grid grid-cols-1 gap-3 py-9 transition-transform duration-300 group-hover:translate-x-2 lg:grid-cols-[56px_1fr_minmax(0,380px)_1fr] lg:items-baseline lg:gap-8';
 const ROW_SHELL =
   'group hairline-b transition-colors duration-300 hover:bg-[var(--accent-soft)]';
 
